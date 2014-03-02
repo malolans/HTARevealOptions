@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HTATableViewController.h
 //  HTARevealOptions
 //
 //  Created by Malu on 3/1/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface HTATableViewController : UITableViewController
 
 @end
