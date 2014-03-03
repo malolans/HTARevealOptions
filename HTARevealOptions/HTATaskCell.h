@@ -18,6 +18,6 @@
 @property (nonatomic, strong) UILabel *detialsLabel;
 @property (nonatomic, strong) HTAData *cellData;
 
-- (void)modifySubviewToView:(BOOL)isSelected;
+- (void)setAsExpanded;
 
 @end

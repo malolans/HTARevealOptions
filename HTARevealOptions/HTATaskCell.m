@@ -11,7 +11,13 @@
 
 @interface HTATaskCell()
 
+typedef NS_ENUM(NSInteger, HTACellMode) {
+    HTACellModeExpanded,
+    HTACellModeCollapsed
+};
+
 @property (nonatomic, strong) UIView *bottomBar;
+@property (atomic, assign) HTACellMode currentCellMode;
 
 @end
 
@@ -24,6 +30,7 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.currentCellMode = HTACellModeCollapsed;
         [self initSubView];
         [self iniBottomBar];
     }
@@ -53,11 +60,11 @@
     
     frame = CGRectMake(0.0, cellFrame.size.height, cellFrame.size.width, cellFrame.size.height);
     self.fullNameView = [[UIView alloc] initWithFrame:frame];
+    self.fullNameView.backgroundColor = [UIColor colorWithWhite:0.6f
+                                                          alpha:1.0f];
     self.detialsLabel = [[UILabel alloc] initWithFrame:labelFrame];
     [self.fullNameView addSubview:self.detialsLabel];
     [self.contentView addSubview:self.fullNameView];
-    
-//    self.fullNameView.hidden = YES;
 }
 
 - (void)layoutSubviews
@@ -66,36 +73,31 @@
     CGRect bottomBarPostion;
     
     self.nameLabel.frame = CGRectMake(15, 0, 290, 44);
+    self.detialsLabel.frame = self.nameLabel.frame;
     
-    if (!self.isSelected) {
+    if (self.currentCellMode == HTACellModeCollapsed) {
         bottomBarPostion = CGRectMake(0.0, self.nameView.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
     } else {
-        self.detialsLabel.frame = self.nameLabel.frame;
         bottomBarPostion = CGRectMake(0.0, self.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
     }
+    
     self.bottomBar.frame = bottomBarPostion;
+}
+
+- (void)setAsExpanded {
+    self.currentCellMode = HTACellModeExpanded;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    if (selected && ![self isSelected]) {
-        [self modifySubviewToView:selected];
-    } else if (!selected && [self isSelected]) {
-        [self modifySubviewToView:selected];
-    } else if (selected && [self isSelected]) {
-        [self modifySubviewToView:!selected];
-        selected = NO;
+    if (selected && self.currentCellMode == HTACellModeExpanded) {
+        self.currentCellMode = HTACellModeCollapsed;
+    } else if (selected && self.currentCellMode == HTACellModeCollapsed) {
+        self.currentCellMode = HTACellModeExpanded;
     }
+    
+    
     [super setSelected:selected animated:animated];
-}
-
-- (void)modifySubviewToView:(BOOL)isSelected;
-{
-//    if (isSelected) {
-//        self.fullNameView.hidden = NO;
-//    } else {
-//        self.fullNameView.hidden = YES;
-//    }
 }
 
 @end
