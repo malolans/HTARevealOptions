@@ -17,8 +17,6 @@
 		2AC6009318C23E9500E5493C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6009218C23E9500E5493C /* XCTest.framework */; };
 		2AC6009418C23E9500E5493C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6007318C23E9500E5493C /* Foundation.framework */; };
 		2AC6009518C23E9500E5493C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6007718C23E9500E5493C /* UIKit.framework */; };
-		2AC6009D18C23E9500E5493C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AC6009B18C23E9500E5493C /* InfoPlist.strings */; };
-		2AC6009F18C23E9500E5493C /* HTARevealOptionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6009E18C23E9500E5493C /* HTARevealOptionsTests.m */; };
 		2AC600AD18C2437600E5493C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC600AC18C2437600E5493C /* Main.storyboard */; };
 		2AC600B018C243BC00E5493C /* HTATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC600AF18C243BC00E5493C /* HTATableViewController.m */; };
 		2AC600B318C247FA00E5493C /* HTATaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC600B218C247FA00E5493C /* HTATaskCell.m */; };
@@ -49,9 +47,6 @@
 		2AC6008B18C23E9500E5493C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2AC6009118C23E9500E5493C /* HTARevealOptionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HTARevealOptionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC6009218C23E9500E5493C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		2AC6009A18C23E9500E5493C /* HTARevealOptionsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HTARevealOptionsTests-Info.plist"; sourceTree = "<group>"; };
-		2AC6009C18C23E9500E5493C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2AC6009E18C23E9500E5493C /* HTARevealOptionsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTARevealOptionsTests.m; sourceTree = "<group>"; };
 		2AC600AC18C2437600E5493C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2AC600AE18C243BC00E5493C /* HTATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTATableViewController.h; sourceTree = "<group>"; };
 		2AC600AF18C243BC00E5493C /* HTATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTATableViewController.m; sourceTree = "<group>"; };
@@ -89,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				2AC6007918C23E9500E5493C /* HTARevealOptions */,
-				2AC6009818C23E9500E5493C /* HTARevealOptionsTests */,
 				2AC6007218C23E9500E5493C /* Frameworks */,
 				2AC6007118C23E9500E5493C /* Products */,
 			);
@@ -140,24 +134,6 @@
 				2AC6007C18C23E9500E5493C /* InfoPlist.strings */,
 				2AC6007F18C23E9500E5493C /* main.m */,
 				2AC6008118C23E9500E5493C /* HTARevealOptions-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		2AC6009818C23E9500E5493C /* HTARevealOptionsTests */ = {
-			isa = PBXGroup;
-			children = (
-				2AC6009E18C23E9500E5493C /* HTARevealOptionsTests.m */,
-				2AC6009918C23E9500E5493C /* Supporting Files */,
-			);
-			path = HTARevealOptionsTests;
-			sourceTree = "<group>";
-		};
-		2AC6009918C23E9500E5493C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2AC6009A18C23E9500E5493C /* HTARevealOptionsTests-Info.plist */,
-				2AC6009B18C23E9500E5493C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -251,7 +227,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AC6009D18C23E9500E5493C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AC6009F18C23E9500E5493C /* HTARevealOptionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +267,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				2AC6007D18C23E9500E5493C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2AC6009B18C23E9500E5493C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2AC6009C18C23E9500E5493C /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -471,6 +437,7 @@
 				2AC600A418C23E9500E5493C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AC600A518C23E9500E5493C /* Build configuration list for PBXNativeTarget "HTARevealOptionsTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +446,7 @@
 				2AC600A718C23E9500E5493C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
