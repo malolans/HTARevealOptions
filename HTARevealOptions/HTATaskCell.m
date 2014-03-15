@@ -11,13 +11,7 @@
 
 @interface HTATaskCell()
 
-typedef NS_ENUM(NSInteger, HTACellMode) {
-    HTACellModeExpanded,
-    HTACellModeCollapsed
-};
-
 @property (nonatomic, strong) UIView *bottomBar;
-@property (atomic, assign) HTACellMode currentCellMode;
 
 @end
 
@@ -30,7 +24,6 @@ typedef NS_ENUM(NSInteger, HTACellMode) {
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.currentCellMode = HTACellModeCollapsed;
         [self initSubView];
         [self iniBottomBar];
     }
@@ -65,6 +58,8 @@ typedef NS_ENUM(NSInteger, HTACellMode) {
     self.detialsLabel = [[UILabel alloc] initWithFrame:labelFrame];
     [self.fullNameView addSubview:self.detialsLabel];
     [self.contentView addSubview:self.fullNameView];
+    
+    self.fullNameView.hidden = YES;
 }
 
 - (void)layoutSubviews
@@ -75,29 +70,15 @@ typedef NS_ENUM(NSInteger, HTACellMode) {
     self.nameLabel.frame = CGRectMake(15, 0, 290, 44);
     self.detialsLabel.frame = self.nameLabel.frame;
     
-    if (self.currentCellMode == HTACellModeCollapsed) {
+    if (!self.cellData.isSelected) {
+        self.fullNameView.hidden = YES;
         bottomBarPostion = CGRectMake(0.0, self.nameView.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
     } else {
         bottomBarPostion = CGRectMake(0.0, self.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
+        self.fullNameView.hidden = NO;
     }
     
     self.bottomBar.frame = bottomBarPostion;
-}
-
-- (void)setAsExpanded {
-    self.currentCellMode = HTACellModeExpanded;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    if (selected && self.currentCellMode == HTACellModeExpanded) {
-        self.currentCellMode = HTACellModeCollapsed;
-    } else if (selected && self.currentCellMode == HTACellModeCollapsed) {
-        self.currentCellMode = HTACellModeExpanded;
-    }
-    
-    
-    [super setSelected:selected animated:animated];
 }
 
 @end

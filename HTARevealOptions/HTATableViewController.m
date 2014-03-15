@@ -61,19 +61,18 @@
     cell.detialsLabel.text = aCharacter.fullName;
     cell.cellData = aCharacter;
     
-    if ([indexPath isEqual:selectedIndex]) {
-        [cell setAsExpanded];
-    }
-    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    HTAData *aCharacter = [characterData objectAtIndex:indexPath.row];
     if (![indexPath isEqual:selectedIndex]) {
         selectedIndex = indexPath;
+        aCharacter.isSelected = YES;
     } else {
         selectedIndex = nil;
+        aCharacter.isSelected = NO;
     }
 
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
@@ -84,6 +83,8 @@
 {
     if (![indexPath isEqual:selectedIndex]) {
         selectedIndex = nil;
+        HTAData *aCharacter = [characterData objectAtIndex:indexPath.row];
+        aCharacter.isSelected = NO;
     }
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                      withRowAnimation:UITableViewRowAnimationFade];

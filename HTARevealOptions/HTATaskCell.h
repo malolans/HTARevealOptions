@@ -18,6 +18,4 @@
 @property (nonatomic, strong) UILabel *detialsLabel;
 @property (nonatomic, strong) HTAData *cellData;
 
-- (void)setAsExpanded;
-
 @end

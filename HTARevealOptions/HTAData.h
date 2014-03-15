@@ -10,8 +10,9 @@
 
 @interface HTAData : NSObject
 
-@property (nonatomic, strong)NSString *name;
-@property (nonatomic, strong)NSString *fullName;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *fullName;
+@property (nonatomic, assign) BOOL isSelected;
 
 - (id)initWith:(NSString *)aName andFullName:(NSString *)aFullName;
 
